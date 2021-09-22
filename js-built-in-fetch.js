@@ -5,25 +5,17 @@
 }*/
 
 //GET
-async function postData(url = "", data = {}) {
+async function getData(url){
   const response = await fetch(url, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(data),
+      method: "GET",
+      headers: {"Content-Type": "application/json"},
+      mode: "cors",
   });
-  return response.json();
+  return response.json()    
 }
 
 function getMethod() {
-  postData("https://jsonplaceholder.typicode.com/posts/1", {
-    userId: 1,
-    id: 1,
-    title:
-      "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-    body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-  }).then((data) => {
+  getData("https://gorest.co.in/public/v1/users").then((data) => {
     console.log(data);
   });
 }
