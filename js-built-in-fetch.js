@@ -17,7 +17,7 @@ async function postData(url = "", data = {}) {
 }
 
 function getMethod() {
-  postData("https://jsonplaceholder.typicode.com/posts", {
+  postData("https://jsonplaceholder.typicode.com/posts/1", {
     userId: 1,
     id: 1,
     title:
@@ -42,8 +42,8 @@ async function postData(url = "", data = {}) {
 
 function postMethod() {
   postData("https://jsonplaceholder.typicode.com/posts", {
-    id: 8,
-    petId: 1,
+    id: 101,
+    petId: 5,
     quantity: 0,
     shipDate: "2021-07-23T01:44:32.945Z",
     status: "placed",
