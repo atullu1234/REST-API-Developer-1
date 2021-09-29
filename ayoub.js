@@ -1,5 +1,18 @@
+fetch("https://reqres.in/api/users")
+  .then(res) => {
+    if(res.ok) {
+      console.log("SUCCESS")
+    } else {
+      console.log("Not Sucessful")
+    }
+    res.json()
+  })
+  .then(data) => console.log(data));
+  .catch(error => console.log("ERROR"))
+
+/*  
 function request() {
-  fetch("https://jsonplaceholder.typicode.com/todos/1")
+  fetch("https://reqres.in/api/users")
     .then(function (response) {
       return response.json();
     })
@@ -7,3 +20,4 @@ function request() {
       console.log(response);
     });
 }
+ */
