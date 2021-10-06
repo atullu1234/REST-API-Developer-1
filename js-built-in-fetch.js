@@ -4,14 +4,19 @@
     .then((json) => console.log(json));
 }*/
 
+const testp = (document.getElementById("test").innerHTML = getData(
+  "https://gorest.co.in/public/v1/users"
+).then((data) => data));
+return response.json();
+
 //GET
-async function getData(url){
+async function getData(url) {
   const response = await fetch(url, {
-      method: "GET",
-      headers: {"Content-Type": "application/json"},
-      mode: "cors",
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+    mode: "cors",
   });
-  return response.json()    
+  return response.json();
 }
 
 function getMethod() {
