@@ -4,12 +4,19 @@
     .then((json) => console.log(json));
 }*/
 
-const testp = (document.getElementById("test").innerHTML = getData(
-  "https://gorest.co.in/public/v1/users"
-).then((data) => data));
-return response.json();
-
+/*function getMethod() {
+  fetch("https://jsonplaceholder.typicode.com/todos/1")
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+}*/
 //GET
+function testG() {
+  getData("https://jsonplaceholder.typicode.com/posts").then((data) => {
+    document.getElementById("get").innerHTML = JSON.stringify(data);
+  });
+}
+testG();
+
 async function getData(url) {
   const response = await fetch(url, {
     method: "GET",
@@ -20,12 +27,19 @@ async function getData(url) {
 }
 
 function getMethod() {
-  getData("https://gorest.co.in/public/v1/users").then((data) => {
+  getData("https://jsonplaceholder.typicode.com/posts").then((data) => {
     console.log(data);
   });
 }
 
 //POST
+function testP() {
+  postData("https://jsonplaceholder.typicode.com/posts").then((data) => {
+    document.getElementById("post").innerHTML = JSON.stringify(data);
+  });
+}
+testP();
+
 async function postData(url = "", data = {}) {
   const response = await fetch(url, {
     method: "POST",
@@ -51,6 +65,13 @@ function postMethod() {
 }
 
 //PUT
+function testPu() {
+  getData("https://jsonplaceholder.typicode.com/posts/1").then((data) => {
+    document.getElementById("put").innerHTML = JSON.stringify(data);
+  });
+}
+testPu();
+
 async function postData(url = "", data = {}) {
   const response = await fetch(url, {
     method: "PUT",
@@ -76,6 +97,13 @@ function putMethod() {
 }
 
 //DELETE
+function testD() {
+  getData("https://jsonplaceholder.typicode.com/posts/1").then((data) => {
+    document.getElementById("delete").innerHTML = JSON.stringify(data);
+  });
+}
+testD();
+
 async function postData(url = "", data = {}) {
   const response = await fetch(url, {
     method: "DELETE",
