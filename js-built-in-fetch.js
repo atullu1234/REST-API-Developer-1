@@ -10,12 +10,11 @@
     .then((json) => console.log(json));
 }*/
 //GET
-function testG() {
+/*function testG() {
   getData("https://jsonplaceholder.typicode.com/posts").then((data) => {
     document.getElementById("get").innerHTML = JSON.stringify(data);
   });
 }
-testG();
 
 async function getData(url) {
   const response = await fetch(url, {
@@ -30,17 +29,22 @@ function getMethod() {
   getData("https://jsonplaceholder.typicode.com/posts").then((data) => {
     console.log(data);
   });
-}
+}*/
 
 //POST
+
 function testP() {
-  postData("https://jsonplaceholder.typicode.com/posts").then((data) => {
+  var data = JSON.stringify({
+    title: "foo",
+    body: "bar",
+    userId: 1,
+  });
+  postData("https://jsonplaceholder.typicode.com/posts", data).then((data) => {
     document.getElementById("post").innerHTML = JSON.stringify(data);
   });
 }
-testP();
 
-async function postData(url = "", data = {}) {
+function postData(url, data) {
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -51,7 +55,7 @@ async function postData(url = "", data = {}) {
   return response.json();
 }
 
-function postMethod() {
+/*function postMethod() {
   postData("https://jsonplaceholder.typicode.com/posts", {
     id: 101,
     petId: 5,
@@ -62,7 +66,7 @@ function postMethod() {
   }).then((data) => {
     console.log(data);
   });
-}
+}*/
 
 //PUT
 function testPu() {
@@ -70,7 +74,6 @@ function testPu() {
     document.getElementById("put").innerHTML = JSON.stringify(data);
   });
 }
-testPu();
 
 async function postData(url = "", data = {}) {
   const response = await fetch(url, {
