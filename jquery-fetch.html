@@ -14,33 +14,41 @@
   <body>
     <h1>Jquery fetch methods</h1>
     <script>
-      $(document).ready(
-        $.post(
-          "https://jsonplaceholder.typicode.com/posts", // url
-          {
-            id: 8,
-            petId: 3,
-            quantity: 0,
-            shipDate: "2021-07-23T01:44:32.945Z",
-            status: "placed",
-            complete: false,
-          }, // data to be submit
-          function (data, status, jqXHR) {
-            // success callback
-            $("p").append("status: " + status + ", data: " + data.json());
+
+
+            /* post method */
+            $(document).ready(function () {
+              $.post(
+                "https://jsonplaceholder.typicode.com/posts", // url
+                {
+                  id: 8,
+                  petId: 3,
+                  quantity: 0,
+                  shipDate: "2021-07-23T01:44:32.945Z",
+                  status: "placed",
+                  complete: false,
+                }, // data to be submit
+                function (data, status) {
+                  // success callback
+                  $("p").append(
+                    "status: " + status + ", data: " + JSON.stringify(data)
+                  );
+                }
+              );
+              $.get("https://jsonplaceholder.typicode.com/posts", function (data, status) {})
+
+            /* put method */
+            $.ajax({
+          url: '/script.cgi',
+          type: 'DELETE',
+          success: function(result) {
+              // Do something with the result
           }
-        )
-      );
+      });
     </script>
 
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit
-      obcaecati dolorem exercitationem? Expedita suscipit eum aspernatur
-      laudantium itaque perferendis similique tempora aut repudiandae,
-      reprehenderit nobis laborum omnis ipsam neque iure. Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Et eveniet nemo, magni error eaque
-      exercitationem tempore odit iure cumque mollitia sed quasi beatae minus
-      dolores ratione quaerat eum similique nisi!
-    </p>
+    <p id="post"></p>
+    <br /><br /><br />
+    <p id="get"></p>
   </body>
 </html>
