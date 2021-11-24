@@ -14,41 +14,64 @@
   <body>
     <h1>Jquery fetch methods</h1>
     <script>
-
-
-            /* post method */
-            $(document).ready(function () {
-              $.post(
-                "https://jsonplaceholder.typicode.com/posts", // url
-                {
-                  id: 8,
-                  petId: 3,
-                  quantity: 0,
-                  shipDate: "2021-07-23T01:44:32.945Z",
-                  status: "placed",
-                  complete: false,
-                }, // data to be submit
-                function (data, status) {
-                  // success callback
-                  $("p").append(
-                    "status: " + status + ", data: " + JSON.stringify(data)
-                  );
-                }
-              );
-              $.get("https://jsonplaceholder.typicode.com/posts", function (data, status) {})
-
-            /* put method */
-            $.ajax({
-          url: '/script.cgi',
-          type: 'DELETE',
-          success: function(result) {
-              // Do something with the result
+      /* post method */
+      $(document).ready(function () {
+        $.post(
+          "https://jsonplaceholder.typicode.com/posts", // url
+          {
+            id: 8,
+            petId: 3,
+            quantity: 0,
+            shipDate: "2021-07-23T01:44:32.945Z",
+            status: "placed",
+            complete: false,
+          }, // data to be submit
+          function (data, status) {
+            // success callback
+            $("#post").append(
+              "status: " + status + ", data: " + JSON.stringify(data)
+            );
           }
+        );
+
+        /*get method */
+        $.get(
+          "https://jsonplaceholder.typicode.com/posts/1",
+          function (data, status) {
+            $("#get").append(
+              "status: " + status + ", data: " + JSON.stringify(data)
+            );
+          }
+        );
+
+        /*put method */
+        $.ajax({
+          url: "https://jsonplaceholder.typicode.com/posts/1",
+          type: "PUT",
+          success: function (data, status) {
+            $("#put").append(
+              "status: " + status + ", data: " + JSON.stringify(data)
+            );
+          },
+        });
+      });
+
+      /* delete method */
+      $.ajax({
+        url: "https://jsonplaceholder.typicode.com/posts/1",
+        type: "DELETE",
+        success: function (data, status) {
+          $("#delete").append("status: " + status);
+        },
       });
     </script>
 
     <p id="post"></p>
     <br /><br /><br />
     <p id="get"></p>
+    <br /><br /><br />
+    <p id="put"></p>
+    <br /><br /><br />
+    <p id="delete"></p>
   </body>
 </html>
